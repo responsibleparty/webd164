@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <script>
+      function showComment() {
+        //get the length of the comments.
+        //find the characters left by subtracting 255 - length
+        //condition if we go over 255
+        //disable the field or just make the value equal to the first 255 characters.
+        let tweetLength = document.getElementById("comments").value.length;
+        let charLeft = (document.getElementById("numleft").innerHTML =
+          255 - tweetLength);
+
+        if (tweetLength === 255) {
+          alert("Text is too long m8.");
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <form action="" method="post">
+      <input
+        type="text"
+        name="fullname"
+        id="fullname"
+        placeholder="fullname"
+      /><span class="err"></span><br />
+      <div id="showcomment">
+        You have <span id="numleft">255</span> characters of your 255 left!
+      </div>
+      <textarea
+        id="comments"
+        maxlength="255"
+        onkeyup="showComment()"
+      ></textarea>
+      <input type="submit" name="submit" value="Enter" />
+    </form>
+  </body>
+</html>
