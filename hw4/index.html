@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WEBD 164 - Homework 4</title>
+    <style>
+      tr,
+      td {
+        border: 1px solid grey;
+      }
+      .squared {
+        color: green;
+      }
+      th {
+        color: blue;
+      }
+      .verticalRed {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <table></table>
+  </body>
+  <script>
+    let htmlTemplate = `      <tr>
+        <th>X</th>
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
+        <th>5</th>
+        <th>6</th>
+        <th>7</th>
+        <th>8</th>
+        <th>9</th>
+        <th>10</th>
+      </tr>`;
+    function generateTable() {
+      for (let i = 1; i <= 10; i++) {
+        htmlTemplate += `<tr><td class="verticalRed">${i}</td>`;
+        for (let k = 1; k <= 10; k++) {
+          if (i === k) {
+            let product = i * k;
+            htmlTemplate += `<td class="squared"> ${product} </td>`;
+          } else {
+            let product = i * k;
+            htmlTemplate += `<td> ${product} </td>`;
+          }
+        }
+        htmlTemplate += `</tr>`;
+      }
+    }
+
+    generateTable();
+    const multTable = document.querySelector("table");
+    multTable.innerHTML = htmlTemplate;
+  </script>
+</html>
